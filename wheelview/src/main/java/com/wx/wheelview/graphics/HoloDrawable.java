@@ -17,7 +17,7 @@ package com.wx.wheelview.graphics;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-
+import android.graphics.Color;
 import com.wx.wheelview.common.WheelConstants;
 import com.wx.wheelview.widget.WheelView;
 
@@ -55,6 +55,9 @@ public class HoloDrawable extends WheelDrawable {
     public void draw(Canvas canvas) {
         // draw background
         canvas.drawRect(0, 0, mWidth, mHeight, mHoloBgPaint);
+        Paint pi = new Paint();
+        pi.setColor(Color.RED);
+        canvas.drawRect(0, 0, mWidth, 20, pi);
 
         // draw select border
         if (mItemH != 0) {
