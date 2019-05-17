@@ -29,8 +29,8 @@ import com.wx.wheelview.widget.WheelView;
 public class HoloDrawable extends WheelDrawable {
 
     private Paint mHoloBgPaint, mHoloPaint;
-
     private int mWheelSize, mItemH;
+    private Paint mSecHoloBgPaint;
 
     public HoloDrawable(int width, int height, WheelView.WheelViewStyle style, int wheelSize, int itemH) {
         super(width, height, style);
@@ -48,6 +48,10 @@ public class HoloDrawable extends WheelDrawable {
         mHoloPaint.setStrokeWidth(mStyle.holoBorderWidth != -1 ? mStyle.holoBorderWidth : 3);
         mHoloPaint.setColor(mStyle.holoBorderColor != -1 ? mStyle.holoBorderColor : WheelConstants
                 .WHEEL_SKIN_HOLO_BORDER_COLOR);
+
+
+        mSecHoloBgPaint = new Paint();
+        mSecHoloBgPaint.setColor(mStyle.secondaryBackgroundColor != -1 ? mStyle.secondaryBackgroundColor : mStyle.backgroundColor);
     }
 
 
@@ -55,11 +59,11 @@ public class HoloDrawable extends WheelDrawable {
     public void draw(Canvas canvas) {
         // draw background
         canvas.drawRect(0, 0, mWidth, mHeight, mHoloBgPaint);
+
         
-        Paint pi = new Paint();
-        pi.setColor(Color.LTGRAY);
-        canvas.drawRect(0, 0, mWidth, mItemH * (mWheelSize / 2), pi);
-        canvas.drawRect(0, mItemH * (mWheelSize / 2 + 1), mWidth, mHeight, pi);
+        //secondary background
+        canvas.drawRect(0, 0, mWidth, mItemH * (mWheelSize / 2), mSecHoloBgPaint);
+        canvas.drawRect(0, mItemH * (mWheelSize / 2 + 1), mWidth, mHeight, mSecHoloBgPaint);
 
 
         // draw select border
