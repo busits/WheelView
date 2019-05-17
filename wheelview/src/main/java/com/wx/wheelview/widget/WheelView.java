@@ -656,7 +656,7 @@ public class WheelView<T> extends ListView implements IWheelView<T> {
             Paint.FontMetricsInt fontMetrics = mTextPaint.getFontMetricsInt();
             int baseline = (targetRect.bottom + targetRect.top - fontMetrics
                     .bottom - fontMetrics.top) / 2;
-            mTextPaint.setTextAlign(Paint.Align.LEFT);
+            mTextPaint.setTextAlign(Paint.Align.CENTER);
             canvas.drawText(mExtraText, targetRect.centerX() + mExtraMargin,
                     baseline, mTextPaint);
         }
