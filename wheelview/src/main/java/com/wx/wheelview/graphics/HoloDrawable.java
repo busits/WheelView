@@ -55,9 +55,12 @@ public class HoloDrawable extends WheelDrawable {
     public void draw(Canvas canvas) {
         // draw background
         canvas.drawRect(0, 0, mWidth, mHeight, mHoloBgPaint);
+        
         Paint pi = new Paint();
-        pi.setColor(Color.RED);
-        canvas.drawRect(0, 0, mWidth, 20, pi);
+        pi.setColor(Color.LTGRAY);
+        canvas.drawRect(0, 0, mWidth, mItemH * (mWheelSize / 2), pi);
+        canvas.drawRect(0, mItemH * (mWheelSize / 2 + 1), mWidth, mHeight, pi);
+
 
         // draw select border
         if (mItemH != 0) {
