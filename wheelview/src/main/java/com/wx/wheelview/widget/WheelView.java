@@ -685,6 +685,7 @@ public class WheelView<T> extends ListView implements IWheelView<T> {
         public int selectedTextSize = -1;   // 选中文本大小
         public float textAlpha = -1;  // 文本透明度(0f ~ 1f)
         public float selectedTextZoom = -1; // 选中文本放大倍数
+        public int secondaryBackgroundColor = -1;
 
         public WheelViewStyle() {
         }
